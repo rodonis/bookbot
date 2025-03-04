@@ -19,3 +19,14 @@ def count_chars(book: str) -> dict:
                 count += 1
         char_count[ch] = count
     return char_count
+
+
+def show_report():
+    chars_list = []
+    for char, count in char_count.items():
+        if char.isalpha():
+            chars_list.append({"char": char, "count": count})
+    chars_list.sort(reverse=True, key=lambda item: item["count"])
+
+    for c in chars_list:
+        print(f"{c['char']}: {c['count']}")
